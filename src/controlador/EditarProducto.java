@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Producto;
+import modelo.ProductoModelo;
+
 /**
  * Servlet implementation class EditarProducto
  */
@@ -26,7 +29,19 @@ public class EditarProducto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//recibir el idProcuto
+		int idProducto = Integer.parseInt(request.getParameter("id"));
 		
+		//crear modelo
+		ProductoModelo productoModelo= new ProductoModelo();
+		
+		//seleccionar el producto
+		Producto producto = productoModelo.select(idProducto);
+		
+		//meterlo en el request
+		request.setAttribute("producto", producto);
+		
+		request.getRequestDispatcher("formEdicion.jsp").forward(request, response);
 	}
 
 	

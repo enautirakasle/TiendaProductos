@@ -58,4 +58,9 @@ public class ProductoModelo extends Conector{
 		return null;
 	}
 
+	public void update(Producto producto) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
