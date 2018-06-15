@@ -27,6 +27,14 @@
 					<strong>Precio:</strong>
 					<input type="text" name="precio" value=""/> <br> <br>
 					
+					<strong>Marca:</strong>
+					<select name="marca">
+						<c:forEach items="${marcas}" var="marca">
+							<option value="${marca.id}">${marca.nombre}</option>
+						</c:forEach>
+					</select>
+					<br> <br>
+					
 					
 					<input class="btn btn-secondary" type="submit" value="guardar"/>
 				</form>

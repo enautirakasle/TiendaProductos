@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Marca;
 import modelo.Producto;
 import modelo.ProductoModelo;
 
@@ -39,12 +40,17 @@ public class AlmacenarProducto extends HttpServlet {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date fechaCompra = sdf.parse(request.getParameter("fecha_compra"));
 			double precio = Double.parseDouble(request.getParameter("precio"));
+			int idMarca = Integer.parseInt(request.getParameter("marca"));
 			
 			//crear el objeto producto
 			Producto producto = new Producto();
 			producto.setNombre(nombre);
 			producto.setFechaCompra(fechaCompra);
 			producto.setPrecio(precio);
+			
+			Marca marca = new Marca();
+			marca.setId(idMarca);
+			producto.setMarca(marca);
 			
 			//crear modelo
 			ProductoModelo productoModelo = new ProductoModelo();
