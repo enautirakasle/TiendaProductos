@@ -87,4 +87,39 @@ public class ProductoModelo extends Conector{
 		
 	}
 
+	public void insert(Producto producto) {
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("insert into productos (nombre, fecha_compra, precio) values(?, ?, ?)");
+			pst.setString(1, producto.getNombre());
+			pst.setDate(2, new java.sql.Date(producto.getFechaCompra().getTime()));
+			pst.setDouble(3, producto.getPrecio());
+			pst.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
