@@ -27,6 +27,19 @@
 					<strong>Precio:</strong>
 					<input type="text" name="precio" value="${producto.precio}"/> <br> <br>
 					
+					<strong>Marca:</strong>
+					<select name="marca">
+						<c:forEach items="${marcas}" var="marca">
+							<c:if test="${marca.id == producto.marca.id}">
+								<option value="${marca.id}" selected>${marca.nombre}</option>
+							</c:if>
+							<c:if test="${marca.id != producto.marca.id}">
+								<option value="${marca.id}">${marca.nombre}</option>
+							</c:if>
+							
+						</c:forEach>
+					</select>
+					<br> <br>
 					
 					<input class="btn btn-secondary" type="submit" value="guardar"/>
 				</form>
