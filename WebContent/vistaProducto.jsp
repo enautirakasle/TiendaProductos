@@ -20,6 +20,7 @@
 				<strong>Nombre:</strong>${producto.nombre}<br> <br>
 				<strong>Fecha de compra:</strong> ${producto.fechaCompra}<br> <br>
 				<strong>Precio:</strong>${producto.precio}<br> <br>
+				<strong>Marca: </strong>${producto.marca.nombre }<br> <br>
 				<a href="EditarProducto?id=${producto.id}">Editar</a>
 				
 			</div>

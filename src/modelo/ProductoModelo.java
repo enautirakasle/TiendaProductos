@@ -10,6 +10,7 @@ public class ProductoModelo extends Conector{
 
 	public ArrayList<Producto> sellectAll() {
 		ArrayList<Producto> productos = new ArrayList<Producto>();
+		MarcaModelo marcaModelo = new MarcaModelo();
 		try {
 			
 			Statement st = super.conexion.createStatement();
@@ -21,6 +22,9 @@ public class ProductoModelo extends Conector{
 				producto.setNombre(rs.getString("nombre"));
 				producto.setFechaCompra(rs.getDate("fecha_compra"));
 				producto.setPrecio(rs.getDouble("precio"));
+				
+				Marca marca = marcaModelo.select(rs.getInt("id_marca"));
+				producto.setMarca(marca);
 				
 				productos.add(producto);
 			}
@@ -34,6 +38,7 @@ public class ProductoModelo extends Conector{
 
 	public Producto select(int idProducto) {
 		PreparedStatement pst;
+		MarcaModelo marcaModelo = new MarcaModelo();
 		try {
 			pst = super.conexion.prepareStatement("select * from productos where id=?");
 			pst.setInt(1,idProducto);
@@ -46,6 +51,10 @@ public class ProductoModelo extends Conector{
 				producto.setNombre(rs.getString("nombre"));
 				producto.setFechaCompra(rs.getDate("fecha_compra"));
 				producto.setPrecio(rs.getDouble("precio"));
+				
+				Marca marca = marcaModelo.select(rs.getInt("id_marca"));
+				producto.setMarca(marca);
+				
 				return producto;
 			}else{
 				return null;

@@ -23,6 +23,7 @@
 							<th scope="col">nombre</th>
 							<th scope="col">fecha compra</th>
 							<th scope="col">precio</th>
+							<th scope="col">marca</th>
 							<th scope="colo">acciones</th>
 						</tr>
 					</thead>
@@ -32,6 +33,7 @@
 							<td>${producto.nombre}</td>
 							<td>${producto.fechaCompra}</td>
 							<td>${producto.precio}</td>
+							<td>${producto.marca.nombre}</td>
 							<td>
 								<a href="VerProducto?id=${producto.id}">Ver</a>
 								<a href="EditarProducto?id=${producto.id}">Editar</a>
