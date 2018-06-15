@@ -73,4 +73,18 @@ public class ProductoModelo extends Conector{
 		
 	}
 
+	public void delete(int id) {
+		PreparedStatement pst;
+		try {
+			pst = super.conexion.prepareStatement("delete from productos where id=?");
+			pst.setInt(1, id);
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
 }

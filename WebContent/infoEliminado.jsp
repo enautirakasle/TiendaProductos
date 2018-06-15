@@ -12,40 +12,21 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="navBar.html"></jsp:include>
+	<jsp:include page="navBar.html"></jsp:include>
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<a class="btn btn-primary" href="CrearProducto">Crear producto</a> <br>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col">nombre</th>
-							<th scope="col">fecha compra</th>
-							<th scope="col">precio</th>
-							<th scope="colo">acciones</th>
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${productos}" var="producto">
-						<tr>
-							<td>${producto.nombre}</td>
-							<td>${producto.fechaCompra}</td>
-							<td>${producto.precio}</td>
-							<td>
-								<a href="VerProducto?id=${producto.id}">Ver</a>
-								<a href="EditarProducto?id=${producto.id}">Editar</a>
-								<a href="EliminarProducto?id=${producto.id}">Eliminar</a>
-							</td>
-						</tr>
-					</c:forEach>
-						
-
-					</tbody>
-				</table>
+				<h2>El siguiente producto ha sido eliminado</h2>
+				
+				<strong>Id:</strong> ${producto.id}<br> <br>
+				<strong>Nombre:</strong>${producto.nombre}<br> <br>
+				<strong>Fecha de compra:</strong> ${producto.fechaCompra}<br> <br>
+				<strong>Precio:</strong>${producto.precio}<br> <br>
 			</div>
 		</div>
 	</div>
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
